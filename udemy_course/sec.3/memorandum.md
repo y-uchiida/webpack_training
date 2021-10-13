@@ -1,4 +1,4 @@
-# memorandum of webpack-training
+# memorandum of webpack-training sec.3
 Udemy講座の内容を実際に作成しながら、忘れそうなところやつまづいた部分を記載していきます。
 
 ## webpack とはなんなのか
