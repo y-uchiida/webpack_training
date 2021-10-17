@@ -37,7 +37,9 @@ module.exports = {
 				test: /\.png/,
 				use: [
 					{
-						loader: "url-loader",
+						/* file-loader を利用するので、"url-loader"はコメントアウトしておく */
+						// loader: "url-loader",
+						loader: "file-loader",
 						options: {
 							/* ES modulesの構文での読み込みをしない
 							 * ES modules: jsファイルから別のjsファイルを読み込むための仕様
