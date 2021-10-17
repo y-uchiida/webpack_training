@@ -63,3 +63,47 @@ found 0 vulnerabilities
 ```
 
 この状態でビルドすると、ファイル名がランダムに出力された画像ファイルがdistに含まれるようになる
+
+## file-loader の設定の最適化
+ファイル名の出力がランダムになってしまうと、distを見た際の対応関係がわからなくなるので、srcファイルのほうと一致させたい  
+その場合、optionsの `name`で設定することができる  
+`[name].[ext]` で、ファイル名と拡張子を維持したままdist/images ディレクトリに保存される  
+```
+	options: {
+		esModule: false,
+		name: "images/[name].[ext]"
+	}
+```
+  
+また、様々な形式の画像ファイルに対応するため、testの記述も変更する
+```
+	test: /\.(png|jpg|jpeg|svg|bmp)/,
+```
+
+## ビルドを実行
+ここまで設定を行ってビルドをすると、出力結果にimagesディレクトリと画像が含まれていることがわかる
+```
+$ npx webpack --mode development
+assets by path images/ 1.76 MiB
+  asset images/background.jpg 1.75 MiB [emitted] [from: src/images/background.jpg]
+  asset images/deer_icon.png 7.91 KiB [emitted] [from: src/images/deer_icon.png]
+assets by path ./ 5.44 KiB
+  asset ./js/main.js 5.19 KiB [emitted] (name: main)
+  asset ./css/main.css 251 bytes [emitted] (name: main)
+asset index.html 501 bytes [emitted]
+Entrypoint main 5.44 KiB = ./css/main.css 251 bytes ./js/main.js 5.19 KiB
+```
+
+## Webpack5 のasset module
+最新版のWebpack 5 では、画像などのアセットファイルを扱うためのモジュールが標準搭載された  
+url-loaderやfile-loaderを追加でインストールしなくても、asset モジュールを利用すれば、  
+画像ファイルをdistに含めることができる
+
+```
+	test: /\.(png|jpg|jpeg|svg|bmp)/,
+	/* webpack 5 のasset modukeを利用する場合の記述 */
+	type: "asset/resource",
+	generator: {
+		filename: "images/[name][ext]"
+	},
+```
