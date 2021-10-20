@@ -20,3 +20,26 @@ TypeScriptをどのバージョンにトランスパイルするかを設定し�
 
 ### モジュールの読み込みと関数の実行
 `main.js` から`add.ts`を読み込みし、その関数を実行する
+
+## TypeScript でreactのコンポーネントを記述する
+
+### コンポーネントの記述
+`src/js/Alert.tsx` を作成
+```
+import * as React from "react";
+
+const Alert: React.FC<{ message: string }> = ({message}) => {
+	return(
+		<div style={{ color: "#fff", background: "red" }}>{message}</div>
+	)
+}
+
+export default Alert;
+```
+
+### react by ts のビルド用のパッケージを追加
+- @types/react
+
+### jsx から読み込み
+作成した`src/js/Alert.tsx` を、`reactApp.js` から読み込んで利用する  
+使い方はこれまでと変わらず、モジュールとしてimport するだけでOK
