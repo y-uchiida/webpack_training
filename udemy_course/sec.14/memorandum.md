@@ -72,4 +72,10 @@ if (reactRoot) {
 import "./reactApp.jsx"
 ```
 
+### react コンポーネントをマウントする要素をhtmlに追加
+`index.pug` に、`div#react-root` を追加する
+
 ### ビルドを実行
+ビルド実行して、問題が起きなければ完了  
+index.htmlにアクセスした際はreactコンポーネント(テキスト)が表示され、  
+それ以外のページにアクセスした場合はconsoleにメッセージが表示される
