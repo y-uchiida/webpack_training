@@ -1,0 +1,10 @@
+extends _layout.pug
+block vars 
+	//- 変数を上書き
+	- var page_title = "index.html"
+block content
+	h1 index.html(build from index.pug)
+	h2 react app
+	div#react-root
+	.main-image 
+		img.icon(src="../images/deer_icon.png")

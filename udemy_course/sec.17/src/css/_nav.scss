@@ -1,0 +1,16 @@
+header nav ul {
+	display: flex;
+	margin-bottom: 4em;
+	li {
+		margin-right: 0.5em;
+		list-style-type: none;
+		a {
+			padding: 0.5em;
+			border-bottom: 4px solid #ddd;
+			text-decoration: none;
+			&:hover {
+				color: green;
+			}
+		}
+	}
+}

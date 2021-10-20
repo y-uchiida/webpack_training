@@ -1,0 +1,23 @@
+//- _layout.pug 
+//- コメント
+
+//- 変数を宣言する
+block vars
+	//- 継承元でblock 配下に内容を記述すると、デフォルトの設定になる
+	- var page_title = "page title"
+
+doctype html
+html(lang="ja")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		//- 変数を利用する場合は、#{変数名}
+		title #{page_title} - webpack training
+	body 
+		.container
+			// - 分割したファイルを、include で読み込みする
+			include _header.pug
+			// - block 部分は、継承先ファイルで記述させる
+			block content
+			footer webpack training
