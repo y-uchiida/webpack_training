@@ -2,10 +2,17 @@
 import ReactDom from "react-dom"
 import * as React from "react"
 
+/* 作成したコンポーネントを読み込み */
+import Alert from "./Alert.tsx"
+
 /* reactのコンポーネントを作成 */
 const App = (props) => {
 	return (
-		<div>Hello, react App!!</div>
+		<div>
+			Hello, react App!!
+			{/* Alert を追記 */}
+			<Alert message="Success" />
+		</div>
 	)
 }
 
