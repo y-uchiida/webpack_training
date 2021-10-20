@@ -1,0 +1,12 @@
+extends _layout.pug
+block vars 
+	//- 変数を上書き
+	- var page_title = "index.html"
+block content
+	h1 index.html(build from index.pug)
+	p this is training
+	div#react-root
+	div 
+		img(src="../images/deer_icon.png", alt="deer")
+	div 
+		img(src="../images/background.jpg", alt="background")
