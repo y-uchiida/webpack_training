@@ -31,3 +31,35 @@ console へのテスト出力など
 
 ## 画面表示の調整
 scss ファイルで、スタイルを調整
+
+
+## react のstyled component
+css とコードを分離した記述ができる styled component を試してみる  
+やっぱりTypeScript を使うみたいなので、再度インストールしなおす
+
+### パッケージの追加
+- styled-compornent
+
+### Alert.tsx の編集
+`styled-compornents` をインポートし、`AlertContainer` としてreturnに渡す
+```
+import * as React from "react";
+import styled from "styled-components"
+
+const AlertContainer = styled.div`
+	background-color: green;
+	color: #fff;
+	padding: 1em;
+`
+
+const Alert: React.FC<{ message: string }> = ({message}) => {
+	return(
+		<AlertContainer>
+			{message}
+		</AlertContainer>		
+	)
+}
+
+export default Alert;
+```
+コンポーネント内にスタイルの実装を閉じ込めることができ、別のコンポーネントへの影響を懸念しなくてよくなる

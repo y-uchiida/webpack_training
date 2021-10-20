@@ -31,6 +31,22 @@ module.exports = {
 	],
 	module: {
 		rules: [
+			/* TypeScriptのファイルの読み込み設定 */
+			{
+				test: /\.ts|tsx/,
+				exclude: /node_modules/,
+				use: [
+					{loader: "ts-loader"}
+				]
+			},
+			/* .vue ファイルを読み込みする際に、vueのプラグインが実行されるように設定 */
+			{
+				test: /\.vue/,
+				exclude: /node_modules/,
+				use: [
+					{loader: "vue-loader"}
+				]
+			},
 			/* js ファイルの読み込みの際に、babel が実行されるように設定 */
 			{
 				test: /\.js/,
